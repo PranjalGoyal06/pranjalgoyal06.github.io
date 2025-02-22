@@ -1,32 +1,30 @@
-## Blog Post Title From First Header
+## LeafletJS: A Lightweight Library to Create Interactive Maps
 
-Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.
+LeafletJS is a popular, open-source JavaScript library that makes it easy to create interactive maps for web applications. Thanks to the `jekyll-titles-from-headings` plugin (enabled by GitHub Pages by default), this header is automatically used as the page title.
 
-If the file does not start with a header, then the post title will be derived from the filename.
-
-This is a sample blog post. You can talk about all sorts of fun things here.
+This post will walk you through the basics of LeafletJS—from setting up your environment to adding advanced interactivity to your maps.
 
 ---
 
-### This is a header
+### Introduction
 
-#### Some T-SQL Code
+Interactive maps provide engaging ways to visualize geographic data. In this post, we explore how LeafletJS’s lightweight design and flexibility can help you integrate dynamic maps into your website with minimal setup.
 
-```tsql
-SELECT This, [Is], A, Code, Block -- Using SSMS style syntax highlighting
-    , REVERSE('abc')
-FROM dbo.SomeTable s
-    CROSS JOIN dbo.OtherTable o;
-```
+### Background
 
-#### Some PowerShell Code
+LeafletJS is designed with simplicity and performance in mind. It:
+- Supports touch and mobile-friendly interactions.
+- Offers smooth panning and zooming.
+- Provides an extensible framework through a variety of plugins.
 
-```powershell
-Write-Host "This is a powershell Code block";
+Its minimalistic approach makes it a preferred choice over more complex mapping libraries for many developers.
 
-# There are many other languages you can use, but the style has to be loaded first
+### Getting Started
 
-ForEach ($thing in $things) {
-    Write-Output "It highlights it using the GitHub style"
-}
-```
+#### Installation
+
+You can include LeafletJS in your project using a Content Delivery Network (CDN). Add the following lines to your HTML's `<head>` section:
+
+```html
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
