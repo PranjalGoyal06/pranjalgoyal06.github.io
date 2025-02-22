@@ -8,16 +8,14 @@ This post will walk you through the basics of LeafletJS—from setting up your e
 
 ### Introduction
 
-Interactive maps provide engaging ways to visualize geographic data. In this post, we explore how LeafletJS’s lightweight design and flexibility can help you integrate dynamic maps into your website with minimal setup.
+Interactive maps provide engaging ways to visualize geographic data. In this post, we explore how LeafletJS’s lightweight design and flexibility can help you integrate dynamic maps into your website with minimal setup.  
 
-### Background
+LeafletJS is designed with simplicity and performance in mind. It:  
+- Supports touch and mobile-friendly interactions.  
+- Offers smooth panning and zooming.  
+- Provides an extensible framework through a variety of plugins.  
 
-LeafletJS is designed with simplicity and performance in mind. It:
-- Supports touch and mobile-friendly interactions.
-- Offers smooth panning and zooming.
-- Provides an extensible framework through a variety of plugins.
-
-Its minimalistic approach makes it a preferred choice over more complex mapping libraries for many developers.
+Its minimalistic approach makes it a preferred choice over more complex mapping libraries for many developers.  
 
 ### Getting Started
 
@@ -28,3 +26,4 @@ You can include LeafletJS in your project using a Content Delivery Network (CDN)
 ```html
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+```
