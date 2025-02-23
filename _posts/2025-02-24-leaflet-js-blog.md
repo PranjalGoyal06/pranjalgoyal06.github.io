@@ -155,6 +155,34 @@ If you perform the above steps correctly, you should see the following output:
 
 ## Key features
 
+LeafletJS comes packed with an extensive set of features that make it a powerful choice for creating interactive maps. From basic markers to complex data visualizations, its modular architecture allows developers to implement sophisticated mapping solutions with minimal code. Here are some of the notable features:
+
+### Map Methods
+LeafletJS provides built-in mechanisms to control map behavior. You can easily zoom in and out, set or query the current zoom level, and adjust the view by fitting the map bounds to a specific geographic area.
+
+### Markers and Custom Icons
+Markers allow you to pinpoint specific locations on the map. You can use standard markers or define custom icons to emphasise particular points as well.
+
+### Popups
+Popups allow you to show additional information about a location when a user interacts (click/hover) with the map.
+
+### Tooltips
+Tooltips are used for displaying brief descriptive text when a user hovers over a marker or layer. This feature provides context-sensitive information without cluttering the map.
+
+### Vector Layers
+LeafletJS supports various vector layers for drawing shapes and paths:
+- **Polylines:** Represent sequences of connected lines.
+- **Circles:** Create round shapes using a defined center and radius.
+- **Polygons:** Draw multi-sided shapes, useful for outlining areas.
+
+### GeoJSON Layers
+The library can render GeoJSON data to display complex geospatial features. This is particularly useful for combining diverse geographical data with interactive mapping features.  
+(GeoJSON has been discussed in further detail in the upcoming section)
+
+### Other Useful Features:
+- **Layer Groups:** Organize and manage multiple markers or layers as a single unit.
+- **Event Handling:** Listen and respond to events like zoom changes, clicks, or mouse movements for an enhanced map experience.
+- **Control Layers:** Add widgets that allow users to toggle between different base maps or overlay data.
 
 ## An Example Use-Case
 Practical application of LeafletJS is quite vast. Especially, it can be leveraged amazingly well in the field of data visualisation. For example, we can visualise the population demographics of a particular area. Here is one such implementation:  
@@ -163,9 +191,93 @@ Practical application of LeafletJS is quite vast. Especially, it can be leverage
     <img src="screenshot2.png" style="max-width:75%; height:auto;">
 </div>
 
-<div class = "alert alert-block alert-info"> 
-<b>Note:</b> For furthur information on certain features of Leaflet, have a look at the official Leaflet documentation. Also check out the references listed at the end of this page.
+The above shown **choropleth map** not only visualizes the distribution of population density across districts but also serves as an interactive tool for deeper analysis. With LeafletJS, you can  enhance this map by adding popups and tooltips, allowing users to click on specific districts for additional insights, hence making data visualisation more dynamic and interactive.
+
+Let us dive into the details of the LeafletJS features used in making this map:  
+
+### Markers
+You can add a marker to any coordinate on the map to mark certain landmarks or points of interest.
+
+```js
+const marker = L.marker([latitude , longitude]).addTo(map);
+```
+
+- To add a popup –  
+```js
+marker.bindPopup("Your message goes here");
+```
+**Note:** the `.bindPopup` method is not limited to markers, you can use it with other objects as well.  
+
+<div align="left">
+    <img src="screenshot3.png" style="max-width:40%; height:auto;">
 </div>
+
+### Polygons
+You can create a polygon object (or a circle as well, but the syntax will differ) using the following snippet –
+```js
+const myPolygon = L.polygon([[x1,y1],[x2,y2],[x3,y3],...], polygonOptions).addTo(map);
+```
+Within `polygonOptions`, you can provide options like color, weight, opacity, etc.
+
+<div align="left">
+    <img src="screenshot4.png" style="max-width:40%; height:auto;">
+</div>
+
+### Search Bar
+**Geocoding Search** is a feature in Leaflet Geocoder that allows users to search for any place on the map by typing its name in the search bar.  
+Do note that you would have to include the **Leaflet Control Geocoding** CSS script in the `<head>` and `<body>` in order to use this feature.
+```js
+<link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+```
+To add the search option on the map –
+```js
+L.Control.geocoder().addTo(map);
+```
+However, note the following customisations that you may need to make, depending on your use:  
+- By default, Geocoder adds a marker to the resultant coordinate of the search
+- If you want the map to zoom to the location you searched up (which would be the case most of the time), you would need to create a function for that.  
+
+Here's you to take care of these issues:  
+```js
+L.control.geocoder({
+    defaultMarkGeocode: false  // Prevents automatic marker
+})
+.on('markgeocode', function(e) { // Adjusts the map to the bounding box of the location
+    const bbox = e.geocode.bbox;
+    map.fitBounds(bbox);    
+.addTo(map);
+```
+
+### GeoJSON
+One of the key features in Leaflet is the ability to load GeoJSON files.
+
+- **About GeoJSON**:  
+GeoJSON is an open standard format designed for representing simple geographical features (like points, lines and polygons) along with their non-spatial attributes (like name of a particular polygon). It is based on a human-readable text format called JSON (JavaScript object notation) and is widely used on the web.
+
+Here is how the district borders were defined on the map:  
+```js
+fetch('gujarat.geojson')
+    .then(response => response.json())
+    .then(data => {
+        const densityLayer = L.geoJSON(data, { // Create new geoJSON layer
+            style: funct,
+            onEachFeature: (feature, layer) => {
+                layer.bindPopup(`
+                    <b>${feature.properties.NAME_2}</b><br>
+                    Density: ${densityData[feature.properties.NAME_2]} per km²
+                `);
+            }
+        }).addTo(map);
+```
+
+<div align="left">
+    <img src="screenshot5.png" style="max-width:40%; height:auto;">
+</div>
+
+<div style="border-left: 4px solid #007bff; background-color: #e7f3ff; padding: 10px; margin: 1em 0;">
+    <strong>Note:</strong> For further details and more in-depth discussions about LeafletJS features, please review the official documentation and related resources.
+</div>
+
 
 ## Conclusion
 In conclusion, LeafletJS offers an accessible and efficient way to incorporate interactive maps into your projects. Its simplicity, combined with extensive customization options, makes it a top choice for developers who value both performance and user experience. Whether you're building a small personal blog or a complex application, LeafletJS provides the essential tools to bring your map visualizations to life.
