@@ -157,7 +157,15 @@ If you perform the above steps correctly, you should see the following output:
 
 
 ## An Example Use-Case
-Practical application of LeafletJS is quite vast. Especially, it can be leveraged amazingly well in the field of data visualisation. For example, we can visualise the population demographics of a particular area.
+Practical application of LeafletJS is quite vast. Especially, it can be leveraged amazingly well in the field of data visualisation. For example, we can visualise the population demographics of a particular area. Here is one such implementation:  
+
+<div align="left">
+    <img src="screenshot2.png" style="max-width:75%; height:auto;">
+</div>
+
+<div class = "alert alert-block alert-info"> 
+<b>Note:</b> For furthur information on certain features of Leaflet, have a look at the official Leaflet documentation. Also check out the references listed at the end of this page.
+</div>
 
 ## Conclusion
 In conclusion, LeafletJS offers an accessible and efficient way to incorporate interactive maps into your projects. Its simplicity, combined with extensive customization options, makes it a top choice for developers who value both performance and user experience. Whether you're building a small personal blog or a complex application, LeafletJS provides the essential tools to bring your map visualizations to life.
