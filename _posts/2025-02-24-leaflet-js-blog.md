@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Leaflet.js Blog"
+date: 2024-02-24
+categories: [maps, JavaScript]
+---
+
 # LeafletJS: A Lightweight Library to Create Interactive Maps
 
 ## Contents
