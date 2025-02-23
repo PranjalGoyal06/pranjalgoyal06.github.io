@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gujarat Population Density Map</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #map { 
+            height: 80vh; 
+            width: 90%;
+            margin: auto;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .legend { 
+            background: white;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .legend i { 
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gujarat Population Density Map</h1>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Population density data from CSV [1][3]
+        const densityData = {
+            "Ahmadabad": 890,
+            "Surat": 1337,
+            "Vadodara": 552,
+            "Rajkot": 340,
+            "Banas Kantha": 290,
+            "Bhavnagar": 287,
+            "Junagadh": 311,
+            "Sabar Kantha": 328,
+            "Panch Mahals": 457,
+            "Kheda": 582,
+            "Jamnagar": 152,
+            "Dahod": 584,
+            "Anand": 653,
+            "Kachchh": 46,
+            "Mahesana": 462,
+            "Surendranagar": 168,
+            "Valsad": 567,
+            "Bharuch": 238,
+            "Amreli": 205,
+            "Gandhinagar": 650,
+            "Patan": 232,
+            "Navsari": 592,
+            "Tapi": 257,
+            "Narmada": 210,
+            "Porbandar": 253,
+            "The Dangs": 129
+        };
+
+        // Initialize map centered on Gujarat
+        const map = L.map('map').setView([22.2587, 71.1924], 7);
+
+        // Add base tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add marker for IIT Gandhinagar
+        const marker = L.marker([23.211, 72.687]).addTo(map);
+        marker.bindPopup("<b>We are here</b><br>IIT Gandhinagar");
+        marker.on('click', function() {
+            map.setView([23.211, 72.687], 16);
+        });
+
+        // Color scale function with proper conditional ordering
+        function getColor(d) {
+            return d > 1000 ? '#800026' :
+                   d > 600  ? '#BD0026' :
+                   d > 400  ? '#E31A1C' :
+                   d > 300  ? '#FC4E2A' :
+                   d > 200  ? '#FD8D3C' :
+                   d > 100  ? '#FEB24C' :
+                              '#FFEDA0';
+        }
+
+        // Style function for GeoJSON with thick border
+        function style(feature) {
+            return {
+                fillColor: getColor(densityData[feature.properties.NAME_2]),
+                weight: 0.8,
+                opacity: 1,
+                color: 'black',
+                fillOpacity: 0.7
+            };
+        }
+
+        // Load GeoJSON data and add the overlay layer with a toggle switch
+        fetch('gujarat.geojson')
+            .then(response => response.json())
+            .then(data => {
+                const densityLayer = L.geoJSON(data, {
+                    style: style,
+                    onEachFeature: (feature, layer) => {
+                        layer.bindPopup(`
+                            <b>${feature.properties.NAME_2}</b><br>
+                            Density: ${densityData[feature.properties.NAME_2]} per km²
+                        `);
+                    }
+                }).addTo(map);
+
+                // Add layer control (toggle switch) for the population density layer
+                L.control.layers(null, { "Show Population Density": densityLayer }, { collapsed: false }).addTo(map);
+
+                // Add legend
+                const legend = L.control({position: 'bottomright'});
+                legend.onAdd = () => {
+                    const div = L.DomUtil.create('div', 'legend');
+                    const grades = [0, 100, 200, 300, 400, 600, 1000];
+                    
+                    div.innerHTML = '<strong>Population Density<br>(per km²)</strong><br>';
+                    for (let i = 0; i < grades.length; i++) {
+                        div.innerHTML +=
+                            '<i style="background:' + getColor(grades[i] + 1) + '"></i> ' +
+                            grades[i] + (grades[i + 1] ? '–' + grades[i + 1] + '<br>' : '+');
+                    }
+                    return div;
+                };
+                legend.addTo(map);
+            });
+    </script>
+</body>
+</html>
