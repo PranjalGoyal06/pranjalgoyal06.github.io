@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Leaflet sample</title>
+      <!-- Step 1 -->
+      <link
+         rel="stylesheet"
+         href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      />
+      <script
+         src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      ></script>
+      This is a map of IIT Gandhinagar
+   </head>
+   <body>
+      <!-- Step 2 -->
+      <div id="map" style="width: 1000px; height: 500px"></div>
+      <script>
+         // Step 3
+         var mapOptions = {
+            center: [23.211, 72.687],
+            zoom: 16
+         };
+         
+         // Step 4
+         var map = L.map('map', mapOptions);
+         
+         // Step 5
+         var layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+         layer.addTo(map);
+      </script>
+   </body>
+</html>

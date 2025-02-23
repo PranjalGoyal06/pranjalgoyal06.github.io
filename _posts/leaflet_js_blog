@@ -1,12 +1,14 @@
-## LeafletJS: A Lightweight Library to Create Interactive Maps
+# LeafletJS: A Lightweight Library to Create Interactive Maps
 
-LeafletJS is a popular, open-source JavaScript library that makes it easy to create interactive maps for web applications. Thanks to the `jekyll-titles-from-headings` plugin (enabled by GitHub Pages by default), this header is automatically used as the page title.
+## Contents
+1. [Introduction](#introduction)
+2. [Getting Started](#getting-started)
+3. [Key Features](#key-features)
+4. [An Example Use Case](#an-example-use-case)
+5. [Conclusion](#conclusion)
+6. [References and Further Reading](#references-and-further-reading)
 
-This post will walk you through the basics of LeafletJS—from setting up your environment to adding advanced interactivity to your maps.
-
----
-
-### Introduction
+## Introduction
 
 Interactive maps provide engaging ways to visualize geographic data. In this post, we explore how LeafletJS’s lightweight design and flexibility can help you integrate dynamic maps into your website with minimal setup.  
 
@@ -17,9 +19,11 @@ LeafletJS is designed with simplicity and performance in mind. It:
 
 Its minimalistic approach makes it a preferred choice over more complex mapping libraries for many developers.  
 
-### Getting Started
+This post will walk you through the basics of LeafletJS—from setting up your environment to adding advanced interactivity to your map.
 
-#### Installation
+## Getting Started
+
+### Installation
 
 You can include LeafletJS in your project using a Content Delivery Network (CDN). Add the following lines to your HTML's `<head>` section:
 
@@ -27,3 +31,141 @@ You can include LeafletJS in your project using a Content Delivery Network (CDN)
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 ```
+
+### Loading a basic map
+
+#### Step 1: Write the HTML Boilerplate with LeafletJS included
+
+Create a basic HTML page using the code shown below. Don't forget to include and load the LeafletJS API in the head of the HTML file.  
+```html
+<!DOCTYPE html>
+<html>
+   <head>   
+   </head>
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      />
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    ></script>
+   <body>
+      This is where the main body goes...
+   </body>
+</html>
+```
+- **Pro Tip**: On VS Code, you can just type ```doc``` and press Enter to instantly create the boilerplate code!
+
+#### Step 2: Create the container which will contain the map
+To hold the map, we can create a generic container element using the `<div>` tag –
+```html
+<div id = "map" style = "width:1000px; height:500px;"></div>
+```
+
+### Step 3: Defining Map Options
+Before creating the map, it's a good practice to define your map options. The mapOptions object can include properties like the initial center coordinates and the zoom level. For example:
+
+```js
+var mapOptions = {
+   center: [23.211, 72.687], 
+   zoom: 16               
+};
+```
+
+### Step 4: Creating the Map Object
+To create a map on your page, you can use the **Map** class of the Leaflet API. It takes in two arguments:
+- a String variable representing the ID of the `<div>` instance, which in this case is an HTML container.
+- An object literal with map options [optional]
+
+```js
+var map = new L.map('map', mapOptions [optional]);
+```
+
+### Step 5: Adding Layers
+When working with mapping libraries, "layers" represent collections of objects displayed on the map. These layers can contain markers, polylines, polygons, or other map features.   
+Create the tile layer object as shown below
+
+```js
+var layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+```
+
+To add this layer to your map:  
+```js
+map.addLayer(layer);
+```
+
+If you perform the above steps correctly, you should see the following output:
+<style>
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltip-content {
+    display: none;
+    width: 500px;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: left;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    top: 110%;
+    left: 50%;
+    margin-left: 0px;
+    white-space: pre-wrap;
+}
+
+.tooltip:hover .tooltip-content {
+    display: block;
+}
+</style>
+
+<div class="tooltip">
+    <button type="button">Hover to view HTML source</button>
+    <div class="tooltip-content">
+        &lt;!DOCTYPE html&gt;
+        &lt;html&gt;
+             &lt;head&gt;
+                    &lt;title&gt;Leaflet sample&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" /&gt;
+                    &lt;script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"&gt;&lt;/script&gt;
+                    This is a map of IIT Gandhinagar
+             &lt;/head&gt;
+             &lt;body&gt;
+                    &lt;div id="map" style="width: 1000px; height: 500px"&gt;&lt;/div&gt;
+                    &lt;script&gt;
+                         var mapOptions = {
+                                center: [23.211, 72.687],
+                                zoom: 16
+                         };
+                         var map = L.map('map', mapOptions);
+                         var layer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+                         layer.addTo(map);
+                    &lt;/script&gt;
+             &lt;/body&gt;
+        &lt;/html&gt;
+    </div>
+</div>
+
+<div align="left">
+    <img src="screenshot1.png" alt="LeafletJS Map Screenshot" style="max-width:50%; height:auto;">
+</div>
+
+
+
+## Key features
+
+
+## An Example Use-Case
+
+## Conclusion
+
+## References and Further Reading  
+
+- MapTiler is a Swiss provider of custom online maps for websites and applications. Their guides were helpful in creating this blog.
+    - https://docs.maptiler.com/leaflet/
+    - https://youtube.com/playlist?list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB&si=PPo5ABv8d0eM94nj
+- https://www.tutorialspoint.com/leafletjs
+- Also check out the Leaflet API for documentation: https://leafletjs.com/reference.html
