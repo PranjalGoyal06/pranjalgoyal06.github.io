@@ -34,7 +34,7 @@ This post will walk you through the basics of LeafletJS—from setting up your e
 
 You can include LeafletJS in your project using a Content Delivery Network (CDN). Add the following lines to your HTML's `<head>` section:
 
-```html
+```xml
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 ```
@@ -44,7 +44,7 @@ You can include LeafletJS in your project using a Content Delivery Network (CDN)
 #### Step 1: Write the HTML Boilerplate with LeafletJS included
 
 Create a basic HTML page using the code shown below. Don't forget to include and load the LeafletJS API in the head of the HTML file.  
-```html
+```xml
 <!DOCTYPE html>
 <html>
    <head>   
@@ -65,7 +65,7 @@ Create a basic HTML page using the code shown below. Don't forget to include and
 
 #### Step 2: Create the container which will contain the map
 To hold the map, we can create a generic container element using the `<div>` tag –
-```html
+```xml
 <div id = "map" style = "width:1000px; height:500px;"></div>
 ```
 
@@ -278,7 +278,7 @@ fetch('gujarat.geojson')
 ```
 
 <div align="left">
-    <img src="/assets/images/screenshot5.png" style="max-width:40%; height:auto;">
+    <img src="/assets/images/screenshot5.png" style="max-wi dth:40%; height:auto;">
 </div>
 
 <div style="border-left: 4px solid #007bff; background-color: #e7f3ff; padding: 10px; margin: 1em 0;">
