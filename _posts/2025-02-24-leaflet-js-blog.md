@@ -69,7 +69,7 @@ To hold the map, we can create a generic container element using the `<div>` tag
 <div id = "map" style = "width:1000px; height:500px;"></div>
 ```
 
-### Step 3: Defining Map Options
+#### Step 3: Defining Map Options
 Before creating the map, it's a good practice to define your map options. The mapOptions object can include properties like the initial center coordinates and the zoom level. For example:
 
 ```js
@@ -79,7 +79,7 @@ var mapOptions = {
 };
 ```
 
-### Step 4: Creating the Map Object
+#### Step 4: Creating the Map Object
 To create a map on your page, you can use the **Map** class of the Leaflet API. It takes in two arguments:
 - a String variable representing the ID of the `<div>` instance, which in this case is an HTML container.
 - An object literal with map options [optional]
@@ -88,7 +88,7 @@ To create a map on your page, you can use the **Map** class of the Leaflet API. 
 var map = new L.map('map', mapOptions [optional]);
 ```
 
-### Step 5: Adding Layers
+#### Step 5: Adding Layers
 When working with mapping libraries, "layers" represent collections of objects displayed on the map. These layers can contain markers, polylines, polygons, or other map features.   
 Create the tile layer object as shown below
 
@@ -157,7 +157,7 @@ If you perform the above steps correctly, you should see the following output:
 </div>
 
 <div align="left">
-    <img src="/assets/images/screenshot1.png" alt="Basic Map" style="max-width:50%; height:auto;">
+    <img src="/assets/images/screenshot1.png" alt="Basic Map" style="max-width:75%; height:auto;">
 </div>  
 
 ## Key features
@@ -216,7 +216,7 @@ marker.bindPopup("Your message goes here");
 **Note:** the `.bindPopup` method is not limited to markers, you can use it with other objects as well.  
 
 <div align="left">
-    <img src="/assets/images/screenshot3.png" style="max-width:40%; height:auto;">
+    <img src="/assets/images/screenshot3.png" style="max-width:60%; height:auto;">
 </div>
 
 ### Polygons
@@ -227,7 +227,7 @@ const myPolygon = L.polygon([[x1,y1],[x2,y2],[x3,y3],...], polygonOptions).addTo
 Within `polygonOptions`, you can provide options like color, weight, opacity, etc.
 
 <div align="left">
-    <img src="/assets/images/screenshot4.png" style="max-width:40%; height:auto;">
+    <img src="/assets/images/screenshot4.png" style="max-width:60%; height:auto;">
 </div>
 
 ### Search Bar
@@ -278,7 +278,7 @@ fetch('gujarat.geojson')
 ```
 
 <div align="left">
-    <img src="/assets/images/screenshot5.png" style="max-wi dth:40%; height:auto;">
+    <img src="/assets/images/screenshot5.png" style="max-width:60%; height:auto;">
 </div>
 
 <div style="border-left: 4px solid #007bff; background-color: #e7f3ff; padding: 10px; margin: 1em 0;">
