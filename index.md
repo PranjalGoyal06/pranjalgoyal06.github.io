@@ -1,5 +1,5 @@
-Here you can say lots of fun things about your site.
+This is Group J028 of the ES114 (PSDV) 2025 course. As part of the Exposition Assignment, we are here to present Leaflet.js, a simple JavaScript library used to create interactive maps.
 
-Maybe say a some things about yourself.
+This particular webpage contains the blog article that delves into this library.
 
-Or maybe what you plan to blog about.
+Click the below link to read the blog.

@@ -157,8 +157,8 @@ If you perform the above steps correctly, you should see the following output:
 </div>
 
 <div align="left">
-    <img src="screenshot1.png" alt="LeafletJS Map Screenshot" style="max-width:50%; height:auto;">
-</div>
+    <img src="/assets/images/screenshot1.png" alt="Basic Map" style="max-width:50%; height:auto;">
+</div>  
 
 ## Key features
 
@@ -195,7 +195,7 @@ The library can render GeoJSON data to display complex geospatial features. This
 Practical application of LeafletJS is quite vast. Especially, it can be leveraged amazingly well in the field of data visualisation. For example, we can visualise the population demographics of a particular area. Here is one such implementation:  
 
 <div align="left">
-    <img src="screenshot2.png" style="max-width:75%; height:auto;">
+    <img src="/assets/images/screenshot2.png" style="max-width:75%; height:auto;">
 </div>
 
 The above shown **choropleth map** not only visualizes the distribution of population density across districts but also serves as an interactive tool for deeper analysis. With LeafletJS, you can  enhance this map by adding popups and tooltips, allowing users to click on specific districts for additional insights, hence making data visualisation more dynamic and interactive.
@@ -216,7 +216,7 @@ marker.bindPopup("Your message goes here");
 **Note:** the `.bindPopup` method is not limited to markers, you can use it with other objects as well.  
 
 <div align="left">
-    <img src="screenshot3.png" style="max-width:40%; height:auto;">
+    <img src="/assets/images/screenshot3.png" style="max-width:40%; height:auto;">
 </div>
 
 ### Polygons
@@ -227,7 +227,7 @@ const myPolygon = L.polygon([[x1,y1],[x2,y2],[x3,y3],...], polygonOptions).addTo
 Within `polygonOptions`, you can provide options like color, weight, opacity, etc.
 
 <div align="left">
-    <img src="screenshot4.png" style="max-width:40%; height:auto;">
+    <img src="/assets/images/screenshot4.png" style="max-width:40%; height:auto;">
 </div>
 
 ### Search Bar
@@ -278,7 +278,7 @@ fetch('gujarat.geojson')
 ```
 
 <div align="left">
-    <img src="screenshot5.png" style="max-width:40%; height:auto;">
+    <img src="/assets/images/screenshot5.png" style="max-width:40%; height:auto;">
 </div>
 
 <div style="border-left: 4px solid #007bff; background-color: #e7f3ff; padding: 10px; margin: 1em 0;">
