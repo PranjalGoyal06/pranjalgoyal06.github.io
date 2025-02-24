@@ -289,10 +289,10 @@ fetch('gujarat.geojson')
 ## Conclusion
 In conclusion, LeafletJS offers an accessible and efficient way to incorporate interactive maps into your projects. Its simplicity, combined with extensive customization options, makes it a top choice for developers who value both performance and user experience. Whether you're building a small personal blog or a complex application, LeafletJS provides the essential tools to bring your map visualizations to life.
 
-## References and Further Reading  
+## References and Further Reading
 
 - MapTiler is a Swiss provider of custom online maps for websites and applications. Their guides were helpful in creating this blog.
-    - https://docs.maptiler.com/leaflet/
-    - https://youtube.com/playlist?list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB&si=PPo5ABv8d0eM94nj
-- https://www.tutorialspoint.com/leafletjs
-- Also check out the Leaflet API for documentation: https://leafletjs.com/reference.html
+    - [MapTiler Leaflet Guides](https://docs.maptiler.com/leaflet/)
+    - [MapTiler YouTube Playlist](https://youtube.com/playlist?list=PLGHe6Moaz52PUNP4DtIshALDogSURIlYB)
+- [Tutorials Point on LeafletJS](https://www.tutorialspoint.com/leafletjs)  
+- Also check out the Leaflet API for documentation: [LeafletJS Official Documentation](https://leafletjs.com/reference.html)
