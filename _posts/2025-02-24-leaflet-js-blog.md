@@ -282,9 +282,8 @@ fetch('gujarat.geojson')
 </div>
 
 <div style="border-left: 4px solid #007bff; background-color: #e7f3ff; padding: 10px; margin: 1em 0;">
-    <strong>Note:</strong> For further details and more in-depth discussions about LeafletJS features, please review the official documentation and related resources.
+    <strong>Note:</strong> For further details and more in-depth discussions about LeafletJS features, please review <a href="https://leafletjs.com/reference.html">the official documentation</a> and <a href="#references-and-further-reading">related resources</a>.
 </div>
-
 
 ## Conclusion
 In conclusion, LeafletJS offers an accessible and efficient way to incorporate interactive maps into your projects. Its simplicity, combined with extensive customization options, makes it a top choice for developers who value both performance and user experience. Whether you're building a small personal blog or a complex application, LeafletJS provides the essential tools to bring your map visualizations to life.
