@@ -17,7 +17,8 @@ Topic assigned:
 ### Resources:  
 **Learning Resources:**  
 - [MapTiler Leaflet Guides](https://docs.maptiler.com/leaflet/)
-- [Tutorials Point on LeafletJS](https://www.tutorialspoint.com/leafletjs)
+- [Tutorials Point on LeafletJS](https://www.tutorialspoint.com/leafletjs)  
+- Our example webpage was _inspired_ from [this](https://leafletjs.com/examples/choropleth/) (The code for our example was **NOT** copied from this page)
   
 **Sources for data:**
 - [data.gov.in](https://www.data.gov.in)
